@@ -17,6 +17,10 @@ jobs:
         run: ls -lha 
       - name: mostra arquivo mensagem
         run: cat mensagem.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: artifacts  
+          path: /home/ubuntu/mensagem.txt
   job2:
     runs-on: ubuntu-latest
     steps:
@@ -24,5 +28,16 @@ jobs:
         run: cat /etc/os-release
       - name: Lista arquivos
         run: ls -lha 
+      - uses: actions/download-artifact@v4
+        with:
+          name: artifacts
+          path: mensagem.txt
+
+      - name: ver conteudo diretorio
+        run ls -lha && ls ./artifacts
+
+      - name: Acessa arquivo 
+        run: mv artifacts/mensagem.txt . && rm -rf ./artifacts    
+
       - name: mostra arquivo mensagem
         run: cat mensagem.txt
