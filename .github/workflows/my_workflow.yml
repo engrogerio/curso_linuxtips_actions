@@ -1,12 +1,9 @@
 name: First workflow
 
 on:
-  push:
-    branches:
-      - main
-
+  workflow_dispatch
 jobs:
-  giropops:
+  job1:
     runs-on: ubuntu-latest
     steps:
       - name: Confere versao do Ubuntu
@@ -17,3 +14,4 @@ jobs:
         run: ls -lha 
       - name: mostra arquivo mensagem
         run: cat mensagem.txt
+
