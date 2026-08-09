@@ -1,0 +1,28 @@
+name: trabalho_entre_jobs
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Confere versao do Ubuntu
+        run: cat /etc/os-release
+      - name: Exibir mensagem
+        run: echo "Test workflow" > mensagem.txt
+      - name: Lista arquivos
+        run: ls -lha 
+      - name: mostra arquivo mensagem
+        run: cat mensagem.txt
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Confere versao do Ubuntu
+        run: cat /etc/os-release
+      - name: Lista arquivos
+        run: ls -lha 
+      - name: mostra arquivo mensagem
+        run: cat mensagem.txt
