@@ -40,7 +40,7 @@ jobs:
         run: ls -lha 
 
       - name: ver conteudo diretorio
-        run ls -lha && ls ./artifacts
+        run: ls -lha && ls ./artifacts
 
       - name: Acessa arquivo 
         run: mv artifacts/mensagem.txt . && rm -rf ./artifacts    
