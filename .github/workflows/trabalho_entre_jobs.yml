@@ -13,7 +13,7 @@ jobs:
         run: cat /etc/os-release
 
       - name: Exibir mensagem
-        run: echo "Test workflow" > mensagem.txt
+        run: echo "Test workflow" > ${{ github.worspace }}/mensagem.txt
 
       - name: Lista arquivos
         run: ls -lha 
@@ -24,8 +24,9 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: artifacts  
-          path: /home/ubuntu/mensagem.txt
+          path: ${{ github.workspace }}/mensagem.txt
   job2:
+    needs: job1
     runs-on: ubuntu-latest
     steps:
       - name: Confere versao do Ubuntu
