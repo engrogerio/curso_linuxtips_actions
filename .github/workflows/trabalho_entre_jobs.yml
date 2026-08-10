@@ -13,7 +13,7 @@ jobs:
         run: cat /etc/os-release
 
       - name: Exibir mensagem
-        run: echo "Test workflow" > ${{ github.worspace }}/mensagem.txt
+        run: echo "Test workflow" > ${{ github.workspace }}/mensagem.txt
 
       - name: Lista arquivos
         run: ls -lha 
