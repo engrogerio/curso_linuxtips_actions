@@ -3,7 +3,7 @@ name: trabalho_entre_steps
 on:
   push:
     branches:
-      - main
+      - other
 
 jobs:
   job1:

@@ -11,12 +11,16 @@ jobs:
     steps:
       - name: Confere versao do Ubuntu
         run: cat /etc/os-release
+
       - name: Exibir mensagem
         run: echo "Test workflow" > mensagem.txt
+
       - name: Lista arquivos
         run: ls -lha 
+
       - name: mostra arquivo mensagem
         run: cat mensagem.txt
+
       - uses: actions/upload-artifact@v4
         with:
           name: artifacts  
@@ -26,18 +30,23 @@ jobs:
     steps:
       - name: Confere versao do Ubuntu
         run: cat /etc/os-release
-      - name: Lista arquivos
-        run: ls -lha 
+
       - uses: actions/download-artifact@v4
         with:
           name: artifacts
           path: mensagem.txt
+
+      - name: Lista arquivos
+        run: ls -lha 
 
       - name: ver conteudo diretorio
         run ls -lha && ls ./artifacts
 
       - name: Acessa arquivo 
         run: mv artifacts/mensagem.txt . && rm -rf ./artifacts    
+
+      - name: Ver o conteudo do diretório novamente
+        run: ls -lha
 
       - name: mostra arquivo mensagem
         run: cat mensagem.txt
