@@ -23,7 +23,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: artifacts  
+          name: artifacts-upload 
           path: ${{ github.workspace }}/mensagem.txt
   job2:
     needs: job1
@@ -34,8 +34,8 @@ jobs:
 
       - uses: actions/download-artifact@v4
         with:
-          name: artifacts
-          path: mensagem.txt
+          name: artifacts-upload
+          path: artifacts
 
       - name: Lista arquivos
         run: ls -lha 
